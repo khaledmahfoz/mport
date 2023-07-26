@@ -1,59 +1,61 @@
-import { useState } from "react";
-
-import Container from "../Container/Container";
-
-import Menu from "../../assets/images/icons/menu.svg";
-import Close from "../../assets/images/icons/close.svg";
-import Twitter from "../../assets/images/icons/social/twitter.svg";
-import Github from "../../assets/images/icons/social/github.svg";
-import Linkedin from "../../assets/images/icons/social/linkedin.svg";
-import NavbarItemsList from "../NavbarItemsList/NavbarItemsList";
+import React, { useEffect, useState } from "react";
 
 function Navbar() {
-	const [isNavOpen, changeIsNavOpen] = useState(false);
-	function toggleNav() {
-		changeIsNavOpen(!isNavOpen);
-	}
+	const [colorChange, setColorchange] = useState(false);
+
+	const routes = [
+		{
+			id: 1,
+			title: "Home",
+			link: "home",
+		},
+		{
+			id: 2,
+			title: "About Me",
+			link: "about",
+		},
+		{
+			id: 3,
+			title: "Work",
+			link: "work",
+		},
+		{
+			id: 4,
+			title: "Skills",
+			link: "skills",
+		},
+		{
+			id: 5,
+			title: "Contact",
+			link: "contact",
+		},
+	];
+
+	const changeNavbarColor = () => {
+		if (window.scrollY > 0) {
+			setColorchange(true);
+		} else {
+			setColorchange(false);
+		}
+	};
+
+	useEffect(() => {
+		window.addEventListener("scroll", changeNavbarColor);
+	});
+
 	return (
 		<div
-			className="fixed w-full left-0 bottom-0 bg-gray-300 border border-[#ECECEC] transition-[height] h-[50px] z-40"
-			style={{
-				height: isNavOpen ? "250px" : "",
-			}}
+			className={`hidden lg:flex justify-center items-center font-sans py-5 text-xl fixed left-0 w-full z-50 transition ${
+				colorChange ? "bg-blue text-white" : ""
+			}`}
 		>
-			<Container>
-				{!isNavOpen ? (
-					<div className="flex items-center justify-between">
-						<div className="flex items-center h-[50px]">
-							<img
-								className="mr-7 w-[24px] h-[24px]"
-								src={Github}
-								alt="github"
-							/>
-							<img
-								className="mr-7 w-[24px] h-[24px]"
-								src={Twitter}
-								alt="twitter"
-							/>
-							<img
-								className="mr-7 w-[24px] h-[24px]"
-								src={Linkedin}
-								alt="linkedin"
-							/>
-						</div>
-						<button onClick={toggleNav}>
-							<img src={Menu} alt="menu" />
-						</button>
-					</div>
-				) : (
-					<div className="py-5">
-						<button className="ml-auto block" onClick={toggleNav}>
-							<img className="w-[22px] h-[22px]" src={Close} alt="close" />
-						</button>
-						<NavbarItemsList />
-					</div>
-				)}
-			</Container>
+			{routes.map((route) => {
+				return (
+					<a className="mx-2.5" id={route.id} href={`#${route.link}`}>
+						{route.title}
+					</a>
+				);
+			})}
 		</div>
 	);
 }

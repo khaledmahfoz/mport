@@ -189,24 +189,24 @@ function Contact() {
 	});
 
 	return (
-		<section className="py-10">
+		<section className="py-10 pb-20" id="contact">
 			<Container>
-				<SectionHeader number="04" title="Contact Me" />
-				<div className="py-10">
-					<form onSubmit={submitHandler}>
-						{/* <input type="hidden" name="form-name" value="contact" />   */}
-						{content}
-						<button
-							disabled={!formValidity}
-							type="submit"
-							className={`py-5 bg-blue text-white font-bold w-full text-[18px] ${
-								!formValidity ? "opacity-80" : ""
-							}`}
-						>
-							Send Now
-						</button>
-					</form>
-				</div>
+				<SectionHeader number="04" title="Contact Me">
+					<div className="py-10 max-w-[600px] mx-auto">
+						<form onSubmit={submitHandler}>
+							{content}
+							<button
+								disabled={!formValidity}
+								type="submit"
+								className={`py-5 bg-blue text-white font-bold w-full text-[18px] ${
+									!formValidity ? "opacity-80" : ""
+								}`}
+							>
+								Send Now
+							</button>
+						</form>
+					</div>
+				</SectionHeader>
 			</Container>
 		</section>
 	);

@@ -1,0 +1,50 @@
+.span-container {
+	width: 250px;
+	height: 250px;
+	transform: translate(-50%, -50%);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+}
+
+.span-container > * {
+	display: block;
+	position: absolute;
+	width: 40%;
+	height: 40%;
+	animation: speed 4s infinite ease-in-out;
+}
+
+.one {
+	animation-delay: 3s;
+}
+
+.two {
+	animation-delay: 2s;
+}
+
+.three {
+	animation-delay: 1s;
+}
+
+@keyframes speed {
+	0% {
+		transform: translate(0%);
+		border-radius: 50%;
+	}
+
+	25% {
+		transform: translate(150%) scale(0.5);
+		border-radius: 0%;
+	}
+
+	50% {
+		transform: translate(150%, 150%);
+		border-radius: 50%;
+	}
+
+	75% {
+		transform: translate(0, 150%) scale(0.5);
+		border-radius: 0%;
+	}
+}

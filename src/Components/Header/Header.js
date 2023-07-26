@@ -1,49 +1,36 @@
 import Container from "../Container/Container";
 
-import Hero from "../../assets/images/hero.png";
-import O from "../../assets/images/header/o.svg";
-import X from "../../assets/images/header/x.svg";
-import Block from "../../assets/images/header/block.svg";
+import TicTac from "../TicTac/TicTac";
 
 function Header() {
 	return (
-		<header className="py-10">
+		<header className="py-10" id="home">
 			<Container>
-				<div className="md:grid md:grid-cols-2 md:gap-x-7 min-h-screen">
+				<div className="lg:grid lg:grid-cols-2 lg:gap-x-7 lg:my-[200px]">
 					<section className="text-left">
-						<h1 className="text-[45px] font-bold">
+						<h1 className="text-[35px] lg:text-[60px] font-bold">
 							Hi, I’m <span className="text-blue">Mohamed Moamen</span>
 						</h1>
-						<div className="text-[25px] mb-5 font-bold">
+						<div className="text-[25px] lg:text-[40px] mb-5 font-bold">
 							A <span className="text-blue">Front-End </span>
 							Developer
 						</div>
 						<p className="mb-7 text-lg">
-							A Frontend Focused in development & Building the Frontend of Web
-							Apps.
+							Hello, I am passionate about programming and creating
+							user-friendly interfaces. I decided to pursue frontend development
+							to pursue this interest and have been continuously learning and
+							improving my skills ever since.
 						</p>
-						<button className="py-5 bg-blue text-white font-bold w-full text-[18px]">
+						<button
+							className="py-5 bg-blue text-white font-bold w-full text-[18px]"
+							onClick={() =>
+								document.getElementById("contact").scrollIntoView()
+							}
+						>
 							Contact Me
 						</button>
 					</section>
-					{/* <section className="mt-10">
-						<div className="grid grid-cols-[100px_100px] gap-[50px] justify-center">
-							<div className="animate-travelTopLeft">
-								<img className="w-[100px] h-[100px]" src={Block} />
-							</div>
-							<div className="animate-travelTopRight">
-								<img className="w-[100px] h-[100px]" src={O} />
-							</div>
-
-							<div className="animate-travelBottomLeft">
-								<img className="w-[100px] h-[100px]" src={X} />
-							</div>
-							<div className="animate-travelBottomRight">
-								<img className="w-[100px] h-[100px]" src={Block} />
-							</div>
-						</div>
-					</section> */}
-					<section></section>
+					<TicTac />
 				</div>
 			</Container>
 		</header>

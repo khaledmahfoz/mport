@@ -13,30 +13,35 @@ function NavbarItemsList() {
 			title: "Home",
 			icon: Home,
 			alt: "home",
+			link: "home",
 		},
 		{
 			id: 2,
 			title: "About Me",
 			icon: About,
 			alt: "about",
+			link: "about",
 		},
 		{
 			id: 3,
 			title: "Work",
 			icon: Work,
 			alt: "work",
+			link: "work",
 		},
 		{
 			id: 4,
 			title: "Skills",
 			icon: Skills,
 			alt: "skill",
+			link: "skills",
 		},
 		{
 			id: 5,
 			title: "Contact",
 			icon: Contact,
 			alt: "contact",
+			link: "contact",
 		},
 	];
 

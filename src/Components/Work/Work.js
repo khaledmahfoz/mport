@@ -7,14 +7,15 @@ import Project from "../Project/Project";
 
 function Work() {
 	return (
-		<section className="py-10">
+		<section className="py-10" id="work">
 			<Container>
-				<SectionHeader number="02" title="Work" />
-				<div className="py-10">
-					{projects.map((project) => (
-						<Project key={project.id} {...project} />
-					))}
-				</div>
+				<SectionHeader number="02" title="Work">
+					<div className="py-10 lg:grid lg:grid-cols-3 lg:gap-x-5">
+						{projects.map((project) => (
+							<Project key={project.id} {...project} />
+						))}
+					</div>
+				</SectionHeader>
 			</Container>
 		</section>
 	);
